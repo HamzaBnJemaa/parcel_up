@@ -1,50 +1,13 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { projects, type Project } from "@/lib/projects"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
-
-const experiments = [
-  {
-    title: "Project Lattice",
-    medium: "Interface Study",
-    description: "Structural framework for adaptive layouts in dynamic content systems.",
-    span: "col-span-2 row-span-2",
-  },
-  {
-    title: "Signal Field",
-    medium: "Agent Orchestration",
-    description: "Autonomous coordination layer for multi-agent environments.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "Silent Agent",
-    medium: "Visual System",
-    description: "Non-intrusive interface patterns for ambient computing.",
-    span: "col-span-1 row-span-2",
-  },
-  {
-    title: "Noir Grid",
-    medium: "Typography",
-    description: "High-contrast typographic system for editorial interfaces.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "Echo Chamber",
-    medium: "Audio-Visual",
-    description: "Generative soundscapes mapped to interface interactions.",
-    span: "col-span-2 row-span-1",
-  },
-  {
-    title: "Void Protocol",
-    medium: "Experimental",
-    description: "Negative space as primary interaction medium.",
-    span: "col-span-1 row-span-1",
-  },
-]
 
 export function WorkSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -98,7 +61,7 @@ export function WorkSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">02 / Experiments</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">02/portfolio</span>
           <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">SELECTED WORK</h2>
         </div>
         <p className="hidden md:block max-w-xs font-mono text-xs text-muted-foreground text-right leading-relaxed">
@@ -111,8 +74,8 @@ export function WorkSection() {
         ref={gridRef}
         className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
       >
-        {experiments.map((experiment, index) => (
-          <WorkCard key={index} experiment={experiment} index={index} persistHover={index === 0} />
+        {projects.map((project, index) => (
+          <WorkCard key={project.slug} project={project} index={index} persistHover={index === 0} />
         ))}
       </div>
     </section>
@@ -120,16 +83,11 @@ export function WorkSection() {
 }
 
 function WorkCard({
-  experiment,
+  project,
   index,
   persistHover = false,
 }: {
-  experiment: {
-    title: string
-    medium: string
-    description: string
-    span: string
-  }
+  project: Project
   index: number
   persistHover?: boolean
 }) {
@@ -154,16 +112,16 @@ function WorkCard({
   const isActive = isHovered || isScrollActive
 
   return (
-    <article
-      ref={cardRef}
-      className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden",
-        experiment.span,
-        isActive && "border-accent/60",
-      )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <Link href={`/projects/${project.slug}`} className={cn("block", project.span)}>
+      <article
+        ref={cardRef}
+        className={cn(
+          "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden h-full",
+          isActive && "border-accent/60",
+        )}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
       {/* Background layer */}
       <div
         className={cn(
@@ -175,7 +133,7 @@ function WorkCard({
       {/* Content */}
       <div className="relative z-10">
         <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          {experiment.medium}
+          {project.medium}
         </span>
         <h3
           className={cn(
@@ -183,7 +141,7 @@ function WorkCard({
             isActive ? "text-accent" : "text-foreground",
           )}
         >
-          {experiment.title}
+          {project.title}
         </h3>
       </div>
 
@@ -195,7 +153,7 @@ function WorkCard({
             isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
-          {experiment.description}
+          {project.description}
         </p>
       </div>
 
@@ -220,5 +178,6 @@ function WorkCard({
         <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
       </div>
     </article>
+    </Link>
   )
 }
