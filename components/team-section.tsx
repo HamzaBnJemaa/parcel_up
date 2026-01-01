@@ -8,35 +8,24 @@ gsap.registerPlugin(ScrollTrigger)
 
 const teamMembers = [
   {
-    name: "Alex Morgan",
-    role: "Creative Director",
-    image: "/creative-director-portrait.png",
+    name: "Arslen salhi",
+    nameImage: "/arslenname.png",
+    role: "ai developer",
+    image: "/arslen.jpg",
   },
   {
-    name: "Sarah Chen",
-    role: "Lead Designer",
-    image: "/professional-portrait-designer.jpg",
+    name: "Med Ali ladhibi",
+    nameImage: "/daliname.png",
+    role: "web developer",
+    image: "/dali.jpg",
   },
   {
-    name: "Marcus Rodriguez",
-    role: "Senior Developer",
-    image: "/professional-portrait-developer.png",
+    name: "hamza ben jemaa",
+    nameImage: "/hamzaname.png",
+    role: "Developer",
+    image: "/hamza.jpg",
   },
-  {
-    name: "Emma Wilson",
-    role: "Product Strategist",
-    image: "/professional-portrait-strategist.jpg",
-  },
-  {
-    name: "David Kim",
-    role: "UX Researcher",
-    image: "/professional-portrait-researcher.jpg",
-  },
-  {
-    name: "Lisa Park",
-    role: "Brand Manager",
-    image: "/professional-portrait-manager.jpg",
-  },
+  
 ]
 
 export function TeamSection() {
@@ -106,10 +95,14 @@ export function TeamSection() {
 
             {/* Member info */}
             <div className="space-y-2">
-              <h3 className="font-[var(--font-bebas)] text-2xl md:text-3xl tracking-tight group-hover:text-accent transition-colors duration-300">
-                {member.name}
-              </h3>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">{member.role}</p>
+              <div className="flex justify-center">
+                <img
+                  src={member.nameImage}
+                  alt={member.name}
+                  className="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground text-center">{member.role}</p>
             </div>
 
             {/* Decorative line */}

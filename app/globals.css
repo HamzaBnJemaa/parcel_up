@@ -91,6 +91,17 @@
     max-width: 100vw;
     scrollbar-width: thin;
     scrollbar-color: hsl(0, 0%, 24%) hsl(0, 0%, 8%);
+    cursor: none;
+  }
+  
+  /* Hide default cursor globally */
+  * {
+    cursor: none !important;
+  }
+  
+  /* Allow pointer on interactive elements but keep custom cursor */
+  a, button, [role="button"], input, textarea, select {
+    cursor: none !important;
   }
   /* Webkit scrollbar styling for html and body */
   html::-webkit-scrollbar,

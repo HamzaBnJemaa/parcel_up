@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -45,41 +45,6 @@ export function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
-  const cursorRef = useRef<HTMLDivElement>(null)
-  const [isHovering, setIsHovering] = useState(false)
-
-  useEffect(() => {
-    if (!sectionRef.current || !cursorRef.current) return
-
-    const section = sectionRef.current
-    const cursor = cursorRef.current
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-
-      gsap.to(cursor, {
-        x: x,
-        y: y,
-        duration: 0.5,
-        ease: "power3.out",
-      })
-    }
-
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
-
-    section.addEventListener("mousemove", handleMouseMove)
-    section.addEventListener("mouseenter", handleMouseEnter)
-    section.addEventListener("mouseleave", handleMouseLeave)
-
-    return () => {
-      section.removeEventListener("mousemove", handleMouseMove)
-      section.removeEventListener("mouseenter", handleMouseEnter)
-      section.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
 
   useEffect(() => {
     if (!sectionRef.current || !headerRef.current || !cardsRef.current) return
@@ -127,16 +92,6 @@ export function ServicesSection() {
 
   return (
     <section id="services" ref={sectionRef} className="relative py-32 pl-6 md:pl-28">
-      <div
-        ref={cursorRef}
-        className={cn(
-          "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-          "w-12 h-12 rounded-full border-2 border-accent bg-accent",
-          "transition-opacity duration-300",
-          isHovering ? "opacity-100" : "opacity-0",
-        )}
-      />
-
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">01 / Services</span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">WHAT WE DO</h2>

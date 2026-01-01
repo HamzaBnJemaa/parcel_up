@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SmoothScroll } from "@/components/smooth-scroll"
+import { GlobalCursor } from "@/components/global-cursor"
 import "./globals.css"
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -49,9 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark bg-background">
       <body
-        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden cursor-none`}
       >
         <div className="noise-overlay" aria-hidden="true" />
+        <GlobalCursor />
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
       </body>
