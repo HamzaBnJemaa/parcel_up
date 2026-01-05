@@ -60,10 +60,10 @@ export function ContactSection() {
           <div>
             <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Email</h3>
             <a
-              href="mailto:hello@parcelup.com"
+              href="mailto:parcelup@gmail.com"
               className="font-[var(--font-bebas)] text-3xl md:text-4xl tracking-tight hover:text-accent transition-colors duration-300"
             >
-              hello@parcelup.com
+              parcelup@gmail.com
             </a>
           </div>
 
