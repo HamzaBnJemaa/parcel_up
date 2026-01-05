@@ -55,20 +55,17 @@ export function HeroSection() {
           </div>
         </SplitFlapAudioProvider>
 
-        <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
-          Studies in Controlled Environments
-        </h2>
-
+        <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">We Are ParcelUp</h2>
+ 
         <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          We design systems that behave, not just screens that display. Signals from the edge of what&apos;s shippable.
-        </p>
+        ParcelUp is a young, forward-thinking team focused on building modern websites, immersive 3D experiences, and intuitive UI/UX designs. We create smart applications and are currently developing an AI agent to push digital innovation even further...        </p>
 
         <div className="mt-16 flex items-center gap-8">
           <a
             href="#work"
             className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
-            <ScrambleTextOnHover text="View Experiments" as="span" duration={0.6} />
+            <ScrambleTextOnHover text="View Projects" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
@@ -79,12 +76,8 @@ export function HeroSection() {
           </a>
         </div>
       </div>
-
       {/* Floating info tag */}
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
-        <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          v.01 / Experimental Build
-        </div>
       </div>
     </section>
   )
