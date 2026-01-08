@@ -5,6 +5,7 @@ import { TeamSection } from "@/components/team-section"
 import { ContactSection } from "@/components/contact-section"
 import { ScheduleSection } from "@/components/schedule-section"
 import { PrinciplesSection } from "@/components/principles-section"
+import { ContactFormSection } from "@/components/contact-form-section"
 import { ColophonSection } from "@/components/colophon-section"
 import { SideNav } from "@/components/side-nav"
 
@@ -22,6 +23,7 @@ export default function Page() {
         <ContactSection />
         <ScheduleSection />
         <PrinciplesSection />
+        <ContactFormSection />
         <ColophonSection />
       </div>
     </main>
