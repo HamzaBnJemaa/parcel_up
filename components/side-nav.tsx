@@ -11,7 +11,8 @@ const navItems = [
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
   { id: "schedule", label: "Schedule" },
-  { id: "principles", label: "Controlled" },
+  { id: "principles", label: "Companies" },
+  { id: "contact-form", label: "Mailbox" },
   { id: "colophon", label: "Colophon" },
 ]
 
