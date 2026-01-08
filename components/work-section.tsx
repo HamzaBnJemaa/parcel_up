@@ -53,6 +53,7 @@ export function WorkSection() {
       }
     }, sectionRef)
 
+    
     return () => ctx.revert()
   }, [])
 
