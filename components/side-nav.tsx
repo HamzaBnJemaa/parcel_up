@@ -5,14 +5,13 @@ import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { id: "hero", label: "Index" },
+  { id: "hero", label: "Landing" },
   { id: "services", label: "Services" },
   { id: "work", label: "Portfolio" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
   { id: "schedule", label: "Schedule" },
-  { id: "principles", label: "Companies" },
-  { id: "contact-form", label: "Mailbox" },
+  { id: "principles", label: "Controlled" },
   { id: "colophon", label: "Colophon" },
 ]
 
